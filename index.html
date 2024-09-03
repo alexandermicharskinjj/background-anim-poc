@@ -1,0 +1,63 @@
+<html>
+    <style>
+        @property --x {
+            syntax: '<percentage>';
+            inherits: false;
+            initial-value: 0%;
+        }
+        /* @keyframes bg {
+            0% {
+                background-color: #141d4d;
+                background-image: radial-gradient(#253485 50%, #141d4d 100%);
+            }
+            50% {
+                background-color: #253485;
+                background-image: radial-gradient(#253485 10%, #141d4d 100%);
+            }
+            100% {
+                background-color: #141d4d;
+                background-image: radial-gradient(#253485 50%, #141d4d 100%);
+            }
+        } */
+        @keyframes bg {
+            0% {
+                --x:0%;
+            }
+            50% {
+                --x:50%;
+            }
+            100% {
+                --x:100%;
+            }
+        }
+        body {
+            height: 100%;
+            overflow-y: hidden;
+            animation: bg 10s infinite alternate;
+            background: radial-gradient(ellipse farthest-corner at var(--x) 0%, #141d4d 50%, #253485 100%);
+            margin: 0;
+        }
+
+        #layer-1 {
+            height: 100%;
+            width: 100%;
+            overflow-y: hidden;
+            animation: bg 10s infinite alternate;
+            background: radial-gradient(ellipse farthest-corner at var(--x) 20%, #aa1d4d33 30%, #aa348511 100%);
+        }
+
+        #layer-2 {
+            height: 100%;
+            width: 100%;
+            overflow-y: hidden;
+            animation: bg 10s infinite alternate;
+            background: radial-gradient(ellipse farthest-corner at #7713cf4a 0%, var(--x) 52%, #12ab8511 100%);
+        }
+    </style>
+    <body>
+        <div id="layer-1">
+            <div id="layer-2">
+            </div>
+        </div>
+    </body>
+</html>
